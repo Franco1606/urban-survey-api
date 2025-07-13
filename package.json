@@ -1,0 +1,20 @@
+{
+  "name": "urban-survey-api",
+  "version": "0.1.0",
+  "description": "This API handles the urban survey applcation data flows and business logic",
+  "main": "dist/server.js",
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm jest"
+  },
+  "keywords": [
+    "urban",
+    "survey",
+    "api",
+    "data"
+  ],
+  "author": "Redjar",
+  "license": "UNLICENSED"
+}
