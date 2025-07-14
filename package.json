@@ -4,6 +4,10 @@
     "description": "This API handles the urban survey applcation data flows and business logic",
     "main": "dist/server.js",
     "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Franco1606/urban-survey-api.git"
+    },
     "dependencies": {
         "express": "^5.1.0"
     },
