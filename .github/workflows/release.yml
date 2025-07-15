@@ -26,9 +26,9 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Franco1606/urban-survey-api.git
+          git remote set-url origin https://x-access-token:${{ secrets.SEMANTIC_RELEASE }}@github.com/Franco1606/urban-survey-api.git
 
       - name: Semantic Release
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.SEMANTIC_RELEASE }}
         run: npx semantic-release
