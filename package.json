@@ -1,6 +1,6 @@
 {
     "name": "urban-survey-api",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "This API handles the urban survey applcation data flows and business logic",
     "main": "dist/server.js",
     "type": "module",
@@ -24,7 +24,7 @@
         "typescript": "^5.8.3"
     },
     "scripts": {
-        "build": "tsc", 
+        "build": "tsc",
         "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"magenta,green.bold,blue.bold\" \"tsc -w\" \"nodemon --inspect=9229 dist/server.js\"",
         "test": "npm jest"
     },
