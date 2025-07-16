@@ -18,36 +18,43 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const swaggerFile = join(__dirname, './build/swagger.json');
 
 if (fs.existsSync(swaggerFile)) {
-  const swaggerDocument = JSON.parse(fs.readFileSync(swaggerFile, 'utf8'));
-  
-  app.use(
-    '/docs',
-    swaggerUi.serve,
-    swaggerUi.setup(swaggerDocument, {
-      explorer: true,
-      customCss: '.swagger-ui .topbar { display: none }',
-      swaggerOptions: {
-        docExpansion: 'list',
-        filter: true,
-        showRequestDuration: true,
-      },
-    })
-  );
-  
-  console.log('Swagger UI initialized at /docs');
+    const swaggerDocument = JSON.parse(fs.readFileSync(swaggerFile, 'utf8'));
+
+    app.use(
+        '/docs',
+        swaggerUi.serve,
+        swaggerUi.setup(swaggerDocument, {
+            explorer: true,
+            customCss: '.swagger-ui .topbar { display: none }',
+            swaggerOptions: {
+                docExpansion: 'list',
+                filter: true,
+                showRequestDuration: true,
+            },
+        }),
+    );
+
+    console.log('Swagger UI initialized at /docs');
 } else {
-  console.warn('Swagger file not found. API documentation will not be available.');
-  console.warn('Run "npm run tsoa" to generate the Swagger file.');
+    console.warn(
+        'Swagger file not found. API documentation will not be available.',
+    );
+    console.warn('Run "npm run tsoa" to generate the Swagger file.');
 }
 
-app.use(function errorHandler(err: unknown, req: express.Request, res: express.Response, next: express.NextFunction): express.Response | void {
-  if (err instanceof Error) {
-    return res.status(500).json({
-      message: 'Internal Server Error',
-      details: err.message
-    });
-  }
-  next();
+app.use(function errorHandler(
+    err: unknown,
+    req: express.Request,
+    res: express.Response,
+    next: express.NextFunction,
+): express.Response | void {
+    if (err instanceof Error) {
+        return res.status(500).json({
+            message: 'Internal Server Error',
+            details: err.message,
+        });
+    }
+    next();
 });
 
 app.listen(port, () => {
