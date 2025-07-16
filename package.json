@@ -9,7 +9,14 @@
         "url": "https://github.com/Franco1606/urban-survey-api.git"
     },
     "dependencies": {
-        "express": "^5.1.0"
+        "@types/joi": "^17.2.3",
+        "@types/swagger-ui-express": "^4.1.8",
+        "express": "^5.1.0",
+        "joi": "^17.13.3",
+        "reflect-metadata": "^0.2.2",
+        "swagger-ui-express": "^5.0.1",
+        "tsoa": "^6.6.0",
+        "tsyringe": "^4.10.0"
     },
     "devDependencies": {
         "@semantic-release/changelog": "^6.0.3",
@@ -25,7 +32,8 @@
     },
     "scripts": {
         "build": "tsc",
-        "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"magenta,green.bold,blue.bold\" \"tsc -w\" \"nodemon --inspect=9229 dist/server.js\"",
+        "build:tsoa": "tsoa spec-and-routes && tsc",
+        "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"magenta,green.bold,blue.bold\" \"tsoa spec-and-routes && tsc -w\" \"nodemon --inspect=9229 dist/server.js\"",
         "test": "npm jest"
     },
     "keywords": [
